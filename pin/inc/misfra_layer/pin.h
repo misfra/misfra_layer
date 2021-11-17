@@ -34,13 +34,36 @@ typedef enum misfra_layer_pin_level_enum misfra_layer_pin_level_t; /**< 引脚�
 
 enum misfra_layer_pin_mode_enum
 {
-	Misfra_Pin_Mode_Output = 0x00,      /**< 输出模式 */
-	Misfra_Pin_Mode_Input,              /**< 输入模式 */
-	Misfra_Pin_Mode_Input_PullUp,       /**< 上拉输入模式 */
-	Misfra_Pin_Mode_Input_PullDown,     /**< 下拉输入模式 */
-	Misfra_Pin_Mode_Output_OD           /**< 开漏输出 */
+	Misfra_Pin_Mode_Output = 0,                             /**< 输出模式 */
+	Misfra_Pin_Mode_Input = (uint32_t) (1 << 0),            /**< 输入模式 */
+	Misfra_Pin_Mode_Alternate = (uint32_t) (1 << 1),        /**< 复用模式 */
+	Misfra_Pin_Mode_Analog = (uint32_t) (1 << 2),           /**< 模拟模式 */
 };
 typedef enum misfra_layer_pin_mode_enum misfra_layer_pin_mode_t; /**< 引脚模式 */
+
+enum misfra_layer_pin_output_mode_enum
+{
+	Misfra_Pin_Output_Mode_PP = (uint32_t) (1 << 3),        /**< 推挽输出 */
+	Misfra_Pin_Output_Mode_OD = (uint32_t) (1 << 4),        /**< 开漏输出 */
+};
+typedef enum misfra_layer_pin_output_mode_enum misfra_layer_pin_output_mode_t; /**< 引脚输出模式 */
+
+enum misfra_layer_pin_output_speed_enum
+{
+	Misfra_Pin_Output_Speed_Low = (uint32_t) (1 << 5),      /**< 低速 */
+	Misfra_Pin_Output_Speed_Medium = (uint32_t) (1 << 6),   /**< 中速 */
+	Misfra_Pin_Output_Speed_Fast = (uint32_t) (1 << 7),     /**< 快速 */
+	Misfra_Pin_Output_Speed_High = (uint32_t) (1 << 8),     /**< 高速 */
+};
+typedef enum misfra_layer_pin_output_speed_enum misfra_layer_pin_output_speed_t; /**< 引脚速度 */
+
+enum misfra_layer_pin_pull_mode_enum
+{
+	Misfra_Pin_Pull_Mode_No = (uint32_t) (1 << 9),         /**< 无 */
+	Misfra_Pin_Pull_Mode_Up = (uint32_t) (1 << 10),        /**< 上拉 */
+	Misfra_Pin_Pull_Mode_Down = (uint32_t) (1 << 11),      /**< 下拉 */
+};
+typedef enum misfra_layer_pin_output_mode_enum misfra_layer_pin_output_mode_t; /**< 引脚上下拉 */
 
 enum misfra_layer_pin_irq_mode_enum
 {
@@ -86,7 +109,7 @@ misfra_layer_pin_level_t misfra_layer_pin_read(const misfra_layer_pin_index_t *i
  * @param index 引脚编号
  * @param mode 引脚模式
  */
-void misfra_layer_pin_mode(const misfra_layer_pin_index_t *index, misfra_layer_pin_mode_t mode);
+void misfra_layer_pin_mode(const misfra_layer_pin_index_t *index, uint32_t mode);
 
 /**
  * @brief 控制引脚中断

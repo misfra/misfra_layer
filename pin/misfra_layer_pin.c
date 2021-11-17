@@ -42,7 +42,7 @@ misfra_layer_pin_level_t misfra_layer_pin_read(const misfra_layer_pin_index_t *i
  * @param index 引脚编号
  * @param mode 引脚模式
  */
-void misfra_layer_pin_mode(const misfra_layer_pin_index_t *index, const misfra_layer_pin_mode_t mode)
+void misfra_layer_pin_mode(const misfra_layer_pin_index_t *index, uint32_t mode)
 {
 
 }
