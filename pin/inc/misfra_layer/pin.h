@@ -63,7 +63,7 @@ enum misfra_layer_pin_pull_mode_enum
 	Misfra_Pin_Pull_Mode_Up = (uint32_t) (1 << 10),        /**< 上拉 */
 	Misfra_Pin_Pull_Mode_Down = (uint32_t) (1 << 11),      /**< 下拉 */
 };
-typedef enum misfra_layer_pin_output_mode_enum misfra_layer_pin_output_mode_t; /**< 引脚上下拉 */
+typedef enum misfra_layer_pin_pull_mode_enum misfra_layer_pin_pull_mode_t; /**< 引脚上下拉 */
 
 enum misfra_layer_pin_irq_mode_enum
 {
